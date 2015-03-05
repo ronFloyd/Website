@@ -1,0 +1,115 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-image: url(images/donuts.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+}
+.main {
+  width: 800px;
+  margin: 100px auto;
+}
+form {
+  position: relative;
+  top: -10px;
+}
+.editTitle {
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+  transform: scale(.99);
+  opacity: 0.85;
+  box-shadow:
+    0px 3px 3px rgba(0,0,0,0),
+    0px 3px 3px rgba(0,0,0,0);
+}
+.editTitle:hover {
+  transform: scale(1) translateY(-2px);
+  opacity: 1.0;
+  box-shadow:
+    0px 2px 2px rgba(0,0,0,.16),
+    0px 2px 2px rgba(0,0,0,.23);
+}
+header {
+  color: #efefef;
+  width: 800px;
+  position: fixed;
+  top: 0;
+  left: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  background-color: #111111;
+  opacity: 0.90;
+  z-index: 100;
+  font-size: 48px;
+}
+.footer {
+  border-radius: 10px;
+}
+h3 {
+  color: #efefef;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+  background-color: #111111;
+  opacity: 0.75;
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 20px;
+
+}
+.rickroll {
+  border-radius: 10px;
+  font-size: 48px;
+  width: 600px;
+  position: relative;
+  top: 30px;
+}
+.sale {
+  position: relative;
+  top: 20px;
+  left: -300px;
+  border: 3px solid #111111;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 500ms ease-in-out;
+  transform: scale(.75) rotate(330deg);
+  -webkit-animation: myfirst 0.7s infinite;
+}
+.sale:hover {
+  transform: scale(1.25) translateY(-2px);
+    }
+
+@-webkit-keyframes myfirst {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.info {
+  color: #efefef;
+}
+  table, .info {
+  width: 600px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #111111;
+  opacity: 0.75;
+  margin: auto;
+
+}
+th, td {
+  padding: 7px;
+  background-color: #efefef;
+  border: 1px solid #111111;
+  border-radius: 3px;
+  text-align: center;
+}
+th {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+td:hover {
+  background-color: #111111;
+  color: #efefef;
+}

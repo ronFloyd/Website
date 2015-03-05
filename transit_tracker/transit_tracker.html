@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Transit Arrivals</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="transit_tracker.css">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Transit Arrivals</h1>
+        <p>This site makes use of the Trimet Developer API to display arrival info for the stop ID entered.</p>
+      </div>
+
+      <!-- Image to show for large screens -->
+      <div class="col-md-8 hidden-sm hidden-xs">
+        <img src="images/newMax.jpg" width="600px" height="450px">
+      </div>
+
+      <!-- Image to show for small screens -->
+      <div class="col-md-4 hidden-md hidden-lg text-center">
+        <img src="images/BeDazzler.jpg" width="200px" height="200px">
+      </div>
+
+      <!-- Globe glyphicon for stop ID well -->
+      <div class="col-md-4 well text-center">
+        <i class="glyphicon glyphicon-globe"></i>
+
+        <h3>Enter Stop ID</h3>
+        <input type="text" id="stop" placeholder="Stop ID..." />
+        <button id="submit" class="btn btn-sm btn-info">Get Arrivals</button>
+
+        <!-- Framework for Trimet data display -->
+        <section id="stopID"></section>
+        <section id="stopName"></section><br />
+        <section><h4 id="fullSign1"></h4></section>
+        <section id="scheduled1"></section>
+        <section id="arriving1"></section><br />
+        <section><h4 id="fullSign2"></h4></section>
+        <section id="scheduled2"></section>
+        <section id="arriving2"></section>
+      </div>
+
+      <!-- Copyright: cuz why not? -->
+      <footer class="footer col-md-12 text-center">
+        <p>&copy; Ron Floyd 2015</p>
+      </footer>
+
+    </div> <!--End container class-->
+
+    <script>
+
+      $("#stop").focus();
+
+      //Caching Trimet arrival data link
+      var baseUrl = "http://developer.trimet.org/ws/V1/arrivals/appID/26905EAEEBA02217C9448D594?json=true&locIDs=";
+
+      //On click, concatenate stopId to baseUrl and envoke callShit()
+      $("#submit").on("click", function() {
+        var stopText = $('#stop').val();
+        var theUrl = baseUrl + stopText;
+        callShit(theUrl);
+      // $("#stop").val("").focus();
+      });
+
+      //callShit takes in concatenated Url and outputs station info
+      var callShit = function(url) {
+        $.getJSON(url, function(json) {
+
+          console.log(json.resultSet);
+
+          var d1 = new Date(json.resultSet.arrival[0].scheduled),
+              d2 = new Date(json.resultSet.arrival[1].scheduled),
+              time1 = d1.toLocaleTimeString(),
+              time2 = d2.toLocaleTimeString(),
+              now = new Date(),
+              d1Milli = d1.getTime(),
+              d2Milli = d2.getTime(),
+              nowMilli = now.getTime(),
+              arrival1 = Math.round((d1Milli - nowMilli) / 60000),
+              arrival2 = Math.round((d2Milli - nowMilli) / 60000);
+
+          //Stop ID data
+          $('#stopID').text('Stop ID: ' + json.resultSet.location[0].locid);
+          $('#stopName').text(json.resultSet.location[0].desc);
+
+          //First arriving train data
+          $('#fullSign1').text(json.resultSet.arrival[0].fullSign);
+          $('#scheduled1').text("Scheduled at: " + time1);
+
+          //Change first arrival message if less than one minute
+          if(arrival1 >= 1) {
+            $('#arriving1').text("Arriving in: " + arrival1 + " min");
+          } else {
+            $('#arriving1').text("Arriving: right about now, the funk soul brother!");
+          }
+
+          //Second arriving train data
+          $('#fullSign2').text(json.resultSet.arrival[1].fullSign);
+          $('#scheduled2').text("Scheduled at: " + time2);
+
+          //Change second arrival message if less than one minute
+          if(arrival2 >= 1) {
+            $('#arriving2').text("Arriving in: " + arrival2 + " min");
+          } else {
+            $('#arriving2').text("Arriving: right about now, the funk soul brother!");
+          }
+        }
+      )}; //End of function callShit
+
+      //Commit last entered stop ID to local storage.
+
+        var txtStopID = document.getElementById('stop');
+        txtStopID.value = localStorage.getItem('stop');
+        txtStopID.addEventListener('input', function() {
+          localStorage.setItem('stop', txtStopID.value);
+        }, false);
+
+      console.log(txtStopID.value);
+
+    </script>
+  </body>
+</html>
