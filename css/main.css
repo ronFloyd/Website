@@ -123,6 +123,10 @@ PAGE: PORTFOLIO
   color: #bdc3c7;
 }
 
+#gallery li:nth-child(3){
+    clear:left
+}
+
 #gallery li a p {
   margin: 0;
   padding: 5%;
@@ -141,6 +145,7 @@ PAGE: ABOUT
   max-width: 150px;
   margin: 0 auto 30px;
   border-radius: 100%;
+  border: 2px solid black;
 }
 
 
