@@ -1,0 +1,12 @@
+table {
+  table-layout: fixed;
+}
+tr {
+  height: 50px;
+}
+td {
+  width: 25%;
+}
+#daycast {
+  margin-top: 20px;
+}

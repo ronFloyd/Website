@@ -1,0 +1,219 @@
+body {
+  font-family: futura;
+  background-image: url(images/columbiagorge.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+body.onload {
+  font-family: futura;
+  background-image: url(images/columbiagorge.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+
+}
+
+.pcChange {
+  font-family: futura;
+  background-image: url(images/partlycloudy.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+.sChange {
+  font-family: futura;
+  background-image: url(images/sunny.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+
+  .oChange {
+  font-family: futura;
+  background-image: url(images/overcast.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ }
+
+
+
+.current {
+  font-family: futura;
+  font-size: 250px;
+  color: white;
+  vertical-align:bottom;
+  text-align:center;
+  margin-left: none;
+  margin-right: none;
+  vertical-align:bottom;
+  text-align:center;
+  height: 350px;
+  opacity: .9;
+
+
+}
+
+.maxTemp {
+  font-family: futura;
+  font-size: 25px;
+  color: white;
+  padding-top: 200px;
+  text-align: left;
+  width:50px;
+
+
+}
+
+.weatherImage {
+  padding-top: 20px;
+  padding-right: 0px;
+  text-align: center;
+  opacity: .9;
+}
+
+.minTemp {
+  font-family: futura;
+  font-size: 25px;
+  color: white;
+  padding-top: 200px;
+  text-align: right;
+  width:50px;
+
+}
+
+.block1{
+  /*background-color: gray;*/
+  height: 450px;
+
+}
+
+.block2{
+  /*background-color: rgb(110, 110, 110);*/
+  height: 450px;
+
+}
+
+.block3{
+  /*background-color: rgb(84, 84, 84);*/
+  height: 450px;
+  color: white;
+  font-size: 17px;
+}
+
+.block4{
+  /*background-color: rgb(162, 160, 160);*/
+  margin-top: 31px;
+  height: 450px;
+
+}
+
+.centerTemp {
+  text-align: center;
+
+}
+
+.detailsTable {
+  font-family: Futura, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: white;
+  font-weight: normal;
+}
+
+.lead, .featurette-heading {
+  font-family: Futura, Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+.text-muted {
+  font-family: Futura, Helvetica, Arial, sans-serif;
+  color: white;
+  opacity: 0.75;
+}
+
+.featurette-image {
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: 20%;
+}
+
+.key {
+  text-align: right;
+
+}
+
+.value {
+  text-align: left;
+}
+
+.footer {
+  text-align: center;
+  background-color: rgba(238, 238, 238, 0.5);
+  padding-top: 50px;
+  padding-bottom: 30px;
+
+}
+
+.footer p, a {
+  font-family: Futura, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: white;
+  padding-bottom: 20px;
+
+}
+
+.home {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.form-group {
+  margin-right: 20px;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background-color: rgba(238, 238, 238, 0.5);
+}
+
+#frmholder {
+        width: 800px;
+        border: 1px solid #000;
+        border-bottom: 0;
+        text-align: center;
+        background: #fff;
+    }
+    #mapholder {
+        position:absolute;
+        width: 660px;
+        height: 450px;
+        border: 1px solid #000;
+        background: #fff;
+    }
+    #directionsPanel {
+        position:absolute;
+        left:400px;
+        width: 250px;
+        border: 1px solid #000;
+        height: 450px;
+        border-left: 0;
+        background: #fff;
+        overflow: auto;
+    }
+    #fromaddress{}
+    #toaddress{}
+    #max {
+      font-weight: bold;
+    }
+    #carousel-example-generic {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+table {
+  table-layout: fixed;
+}
+tr {
+  height: 50px;
+}

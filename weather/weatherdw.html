@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+  <head>
+
+      <title>Main Weather Display</title>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="weatherdw.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAbNgvs5_gjWmj9rm1XPsGFm9AMRXawEGw&sensor=true&libraries=places&language=en-US"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+
+  </head>
+
+  <body>
+
+
+    <!-- <div class = "background" id="wrap">
+      <img src="images/columbiagorge.jpg">
+      <img src="images/columbiagorged.jpg">
+    </div> -->
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Bucksnort Links</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="weatherdw.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Header with main title -->
+
+    <div class="jumbotron">
+      <h1 class="mainTitle">Bucksnort Weather</h1>
+
+      <div class="form-inline home">
+        <div class="form-group">
+          <label for="zip">Enter City or Zip:</label>
+          <input type="text" id="zip" placeholder="Enter city or zip..." value="">
+        </div>
+        <div class="form-group">
+          <button id="submit" class="btn btn-sm btn-info" >Submit</button><!-- onclick = "codeAddress()" -->
+        </div>
+        <div class="form-group">
+          <label for="fromaddress">Start:</label>
+          <input type="text" id="fromaddress" placeholder="Enter address" size="25" />
+        </div>
+        <div class="form-group">
+          <label for="toaddress">End:</label>
+          <input type="text" id="toaddress" placeholder="Enter address" size="25" />
+        </div>
+        <div class="form-group">
+          <button id="fansbutton" class="btn btn-sm btn-info">Get Route</button>
+        </div>
+        <div class="form-group">
+          <button id="fansbutton2" class="btn btn-sm btn-info">Avoid Highways</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-6 block1 centerTemp">
+
+      <table width="100%" height ="450px">
+        <col width="100">
+        <col width="200">
+        <col width="100">
+        <th>
+          <td  height="100px" id="addimage" class="weatherImage">
+          </td>
+        </th>
+        <tr>
+          <td height="280px" class="minTemp">
+            <section  id="lowTemp"></section>
+          </td>
+          <td height="280px" class="current">
+            <section  id="currentTemp"></section>
+          </td>
+          <td height="280px" class="maxTemp">
+            <section  id="highTemp"></section>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+<!-- Begin Fan's HTML Block -->
+    <div class = "col-md-6 block2 centerTemp">
+      <table>
+        <tr>
+          <td id="mapholder" style='display:none'></td>
+          <!--<td id="directionsPanel" style='display:none'></td> -->
+        </tr>
+      </table>
+    </div>
+<!-- End Fan's HTML Block -->
+
+<!-- Begin Daniel's HTML Block -->
+    <div class = "col-md-6 block3 ">
+      <div class="col-md-12">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+          <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <div class="col-md-12">
+                  <table class="table table-condensed">
+                    <tbody id="1st slide">
+                      <tr class="date1">
+
+                      </tr>
+                      <tr class="hour1">
+
+                      </tr>
+                      <tr class="temp1">
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="item">
+                  <div class="col-md-12">
+                    <table class="table table-condensed">
+                      <tbody id="2nd slide">
+                        <tr class="date2">
+
+                        </tr>
+                        <tr class="hour2">
+
+                        </tr>
+                        <tr class="temp2">
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <div class="item">
+                <div class="col-md-12">
+                  <table class="table table-condensed">
+                    <tbody id="3rd slide">
+                      <tr class="date3">
+
+                      </tr>
+                      <tr class="hour3">
+
+                      </tr>
+                      <tr class="temp3">
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+          </div>
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+        </div>
+            <div class="col-md-12">
+              <table class="table table-condensed">
+                <tbody id="dayforcast">
+
+                </tbody>
+              </table>
+            </div>
+      </div>
+    </div>
+<!-- End Daniel's HTML Block -->
+<!-- Begin Ron's HTML Block -->
+    <div class="col-md-6 block4">
+      <div>
+        <section class="col-md-12 centerTemp">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody class="detailsTable">
+                <tr>
+                  <td class="key">Current</td>
+                  <td class="value" id="detailsHeadline">Conditions</td>
+                </tr>
+                <tr>
+                  <td class="key">Sky:</td>
+                  <td class="value" id="wxDesc"></td>
+                </tr>
+                <tr>
+                  <td class="key">Humidity:</td>
+                  <td class="value" id="humidity"></td>
+                </tr>
+                <tr>
+                  <td class="key">Pressure:</td>
+                  <td class="value" id="pressure"></td>
+                </tr>
+                <tr>
+                  <td class="key">Visibility:</td>
+                  <td class="value" id="visibility"></td>
+                </tr>
+                <tr>
+                  <td class="key">Wind speed:</td>
+                  <td class="value" id="windSpeed"></td>
+                </tr>
+                <tr>
+                  <td class="key">Wind direction:</td>
+                  <td class="value" id="windDir"></td>
+                </tr>
+                <tr>
+                  <td class="key">UV index:</td>
+                  <td class="value"  id="uvIndex"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+    </div>
+<!-- End Ron's HTML Block -->
+
+    <!-- FOOTER -->
+    <footer class="footer col-md-12">
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+      <p>
+        &copy; 2015 Bucksnort, Inc.
+      </p>
+    </footer>
+    <script src="weatherdw.js"></script>
+
+  </body>
+</html>
