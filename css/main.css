@@ -9,7 +9,7 @@ body {
 #wrapper {
   max-width: 940px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 200px 5% 0;
 }
 
 a {
@@ -24,6 +24,10 @@ h3 {
   margin: 0 0 1em 0;
 }
 
+#project-heading {
+  text-align: center;
+}
+
 
 
 /**********************************
@@ -32,9 +36,11 @@ HEADING
 
 header {
   float: left;
-  margin: 0 0 30px 0;
+  margin: 0;
   padding: 5px 0 0 0;
   width: 100%;
+  position: fixed;
+  opacity: 0.75;
 }
 
 #logo {
@@ -43,15 +49,15 @@ header {
 }
 
 h1 {
-  font-family: 'Changa One', sans-serif;
+  font-family: Roboto, sans-serif;
   margin: 15px 0;
-  font-size: 1.75em;
+  font-size: 3em;
   font-weight: normal;
   line-height: 0.8em;
 }
 
 h2 {
-  font-size: 0.75em;
+  font-size: 1.5em;
   margin: -5px 0 0;
   font-weight: normal;
 }
@@ -93,8 +99,11 @@ footer {
   font-size: 0.75em;
   text-align: center;
   clear: both;
-  padding-top: 50px;
   color: #ccc;
+  margin: 0;
+  padding: 25px 0;
+  width: 100%;
+  opacity: 0.75;
 }
 
 .social-icon {
@@ -132,6 +141,10 @@ PAGE: PORTFOLIO
   padding: 5%;
   font-size: 0.75em;
   color: #bdc3c7
+}
+
+#gallery li:hover {
+  opacity: 0.8;
 }
 
 
@@ -194,15 +207,14 @@ body {
   color: #999;
 }
 
-/* green header */
+/* blue header */
 header {
-  background: #6ab47b;
-  border-color: #599a68;
+  background: #06f;
 }
 
-/* nav background on mobile */
+/* light blue nav background */
 nav {
-  background: #599a68;
+  background: #66A3FF;
 }
 
 /* logo text */
@@ -222,7 +234,7 @@ nav a, nav a:visited {
 
 /* selected nav link */
 nav a.selected, nav a:hover {
-  color: #32673f;
+  color: #06f;
 }
 
 
